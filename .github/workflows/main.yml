@@ -44,7 +44,10 @@ jobs:
     
       # Initialize providers and backend
       - name: Terraform Init
-        run: terraform init
+        run: |
+         terraform init \
+          -backend-config = "bucket=${{vars.TF_BUCKET}}" \
+          -backend-config="region=${{vars.AWS_REGION}}" 
       
       # Show the execution plan when applying
       - name: Terraform Plan
