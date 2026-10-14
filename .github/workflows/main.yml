@@ -57,6 +57,6 @@ jobs:
         run: terraform apply -auto-approve
 
       - name: Terraform Destroy
-        if: ${{ github.event.inputs.action == 'Terraform_destroyy' }}
+        if: ${{ github.event.inputs.action == 'Terraform_destroy' }}
         run: terraform destroy -auto-approve
         
