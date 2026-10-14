@@ -15,6 +15,7 @@ on:
 
 jobs:
 
+  
   terraform:
     # Job label shows which action was selected
     name: "Terraform (${{ github.event.inputs.action }})"
@@ -22,6 +23,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Debug workspace
+        run: |
+          pwd
+          ls -la
+          git log -1 --oneline
       # Pull the repo so Terraform files are available
       - name: Checkout repository
         uses: actions/checkout@v4
