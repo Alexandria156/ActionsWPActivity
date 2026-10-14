@@ -26,11 +26,14 @@ jobs:
       # Pull the repo so Terraform files are available
       - name: Checkout repository
         uses: actions/checkout@v4
+      
+      
       - name: Debug workspace
         run: |
           pwd
           ls -la
           git log -1 --oneline
+          
       # Configure AWS creds for Terraform to access AWS
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
