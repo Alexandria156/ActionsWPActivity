@@ -12,7 +12,7 @@ locals {
 resource "aws_instance" "my_server" {
    ami           = data.aws_ami.amazonlinux.id  # Use the AMI ID from the data source
    instance_type = var.instance_type            # Use the instance type from variables
-   key_name      = "${EC2_AWS_KEY}"          # Specify the SSH key pair name
+   key_name      = "${local.aws_key}"          # Specify the SSH key pair name
   
    user_data =  "${file("wp_install.sh")}"
    security_groups = [aws_security_group.allow_http_ssh.name]
